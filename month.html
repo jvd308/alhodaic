@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="img/homepage/favicon.ico" />
+	<title>Alhoda Islamic Center</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Theme CSS -->
+	<link href="css/freelancer.min.css" rel="stylesheet">
+	<link href="css/freelancer.custom.css" rel="stylesheet">
+
+	<!-- Custom Fonts -->
+	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+	<![endif]-->
+	<script type="text/javascript" src="js/PrayTimes.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title> Monthly Prayer Timetable </title>
+ 	<style>
+	.header {background:#eef; border-bottom: 1px solid #ddd; padding: 20px;}
+	.caption {font-size: 30px; color: #283747; text-align: center; width: 10em;}
+	.arrow {font-weight: bold; text-decoration: none; color: #283747; }
+	.arrow:hover {text-decoration: none;}
+	.timetable {border-width: 1px; border-style: outset; border-collapse: collapse; border-color: #000; margin: 0 auto;}
+	.timetable td {border-width: 1px; border-spacing: 0px; padding: 1px; border-style: inset; border-color: #000;}
+	.head-row {color: black; background-color: #ff9999;font-weight: bold;}
+	.today-row {background-color: #000; color: white;}
+	</style>
+</head>
+
+<body>
+    <div  class="portfolio-modal" data-toggle="modal"  tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content" style ='background-color:#a3a375'>
+            <div class="close-modal" data-dismiss="modal" onclick="history.go(-1);">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+        <div class="container" >
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2" >
+                    <div class="modal-body">
+	<h3>
+	<table align="center">
+		<tr>
+		<td><a href="javascript:displayMonth(-1)" class="arrow">&lt;</a></td>
+		<td id="table-title" class="caption"></td>
+		<td><a href="javascript:displayMonth(+1)" class="arrow">&gt;</a></td>
+		</tr>
+	</table>
+	</h3>
+                        <hr class="star-jmonth">
+                      </div>
+                </div>
+	<div class="col-lg-8 col-lg-offset-2" >
+	<!--
+		Method:
+		<select id="method" size="1" style="font-size: 12px;" onchange="update()">
+		<option value="ISNA" selected="selected">Islamic Society of North America</option>
+		<option value="MWL">Muslim World League (MWL)</option>
+		<option value="Egypt">Egyptian General Authority of Survey</option>
+		<option value="Makkah">Umm al-Qura University, Makkah</option>
+		<option value="Karachi">University of Islamic Sciences, Karachi</option>
+		<option value="Jafari">Shia Ithna-Ashari (Jafari)</option>
+		<option value="Tehran">Institute of Geophysics, University of Tehran</option>
+		</select>
+	-->
+	<br>
+	</div>
+	<div class="col-lg-8 col-lg-offset-2" >
+	<table id="timetable" class="timetable">
+		<tbody></tbody>
+	</table>
+	<div align="center" style="margin-top: 7px">
+		Time Format:<span id="time-format" title="Change clock format" class="command"></span>
+	</div>
+	</div>
+
+
+	<script type="text/javascript">
+
+		var currentDate = new Date();
+		var timeFormat = 1;
+		switchFormat(0);
+
+		// display monthly timetable
+		function displayMonth(offset) {
+		    var lat = "40.7625";
+		    var lng = " -73.9503";
+		    var timeZone = "-5";
+		    var dst = "auto";
+		    var method = "ISNA";
+
+		    prayTimes.setMethod(method);
+		    currentDate.setMonth(currentDate.getMonth()+ 1* offset);
+		    var month = currentDate.getMonth();
+		    var year = currentDate.getFullYear();
+		    var title = monthFullName(month)+ ' '+ year;
+		    $('table-title').innerHTML = title;
+		    makeTable(year, month, lat, lng, timeZone, dst);
+		}
+
+		// make monthly timetable
+		function makeTable(year, month, lat, lng, timeZone, dst) {
+		    var items = {day: 'Day', fajr: 'Fajr', sunrise: 'Sunrise',
+				dhuhr: 'Dhuhr', asr: 'Asr', // sunset: 'Sunset',
+				maghrib: 'Maghrib', isha: 'Isha'};
+
+		    var tbody = document.createElement('tbody');
+		    tbody.appendChild(makeTableRow(items, items, 'head-row'));
+		prayTimes.tune( {fajr: 2} );
+		prayTimes.tune( {dhuhr: 1} );
+		prayTimes.tune( {maghrib: 1} );
+		prayTimes.tune( {isha: 1} );
+
+		    var date = new Date(year, month, 1);
+		    var endDate = new Date(year, month+ 1, 1);
+		    var format = '12hNS';
+
+		    while (date < endDate) {
+			var times = prayTimes.getTimes(date, [lat, lng], timeZone, dst, format);
+			times.day = date.getDate();
+			var today = new Date();
+			var isToday = (date.getMonth() == today.getMonth()) && (date.getDate() == today.getDate());
+			var klass = isToday ? 'today-row' : '';
+			tbody.appendChild(makeTableRow(times, items, klass));
+			date.setDate(date.getDate()+ 1);  // next day
+		    }
+		    removeAllChild($('timetable'));
+		    $('timetable').appendChild(tbody);
+		}
+
+		// make a table row
+		function makeTableRow(data, items, klass) {
+		    var row = document.createElement('tr');
+		    for (var i in items) {
+			var cell = document.createElement('td');
+			cell.innerHTML = data[i];
+			cell.style.width = i=='day' ? '2.5em' : '3.7em';
+			row.appendChild(cell);
+		    }
+		    row.className = klass;
+		    return row;
+		}
+
+		// remove all children of a node
+		function removeAllChild(node) {
+		    if (node == undefined || node == null)
+			return;
+
+		    while (node.firstChild)
+			node.removeChild(node.firstChild);
+		}
+
+		// switch time format
+		function switchFormat(offset) {
+		    var formats = ['24-hour', '12-hour'];
+		    timeFormat = (timeFormat+ offset)% 2;
+		    $('time-format').innerHTML = formats[timeFormat];
+		    update();
+		}
+
+		// update table
+		function update() {
+		    displayMonth(0);
+		}
+
+		// return month full name
+		function monthFullName(month) {
+		    var monthName = new Array('January', 'February', 'March', 'April', 'May', 'June',
+				    'July', 'August', 'September', 'October', 'November', 'December');
+		    return monthName[month];
+		}
+
+		function $(id) {
+		    return document.getElementById(id);
+		}
+	</script>
+	</div>
+</body>
+</html>

@@ -246,27 +246,18 @@
   	 <div class="row">
               <div class="col-lg-12 text-center">
                         <!-- CHANGE UPCOMING Event here -->
-                     	<p style="color:#DC143C;font-size:200%"><strong><i class="fa fa-cog fa-spin fa-3x fa-fw" style="color:#283747;font-size:100%"></i>
-			Neighborhood Barbeque on Sunday November 20, 2016 at 12:30 pm.</p>
-                        <a href="#bulletin5" class="portfolio-link" data-toggle="modal"><i class="fa fa-fw fa-info-circle" style="color:#283747"></i></a>
-                        <p style="font-size: small">Click i for more info</p> 
-			<br>
-                        </p> 
-	     </div>
-              <div class="col-lg-12 text-center">
-                        <!-- CHANGE UPCOMING Event here -->
-                     	<p style="color:#DC143C;font-size:200%"><strong><i class="fa fa-cog fa-spin fa-3x fa-fw" style="color:#283747;font-size:100%"></i>
-			Thanksgiving Turkey giveaway on Sunday November 20, 2016 <br>between 1:00 pm to 2:30 pm.</p>
-<!--                        <br><font size="4"> Topic: "The Youth's Role in the  HIJRA & how we can benefit from it."</font></stong> -->
-                        <a href="#bulletin4" class="portfolio-link" data-toggle="modal"><i class="fa fa-fw fa-info-circle" style="color:#283747"></i></a>
-                        <p style="font-size: small">Click i for more info</p> 
-			<br>
-
 <!--
-                        <p style="color:#DC143C;font-size:200%"><strong><i class="fa fa-cog fa-spin fa-3x fa-fw" style="color:#283747;font-size:100%"></i>Currently no Upcoming events.</strong></p>
+                     	<p style="color:#DC143C;font-size:200%"><strong><i class="fa fa-cog fa-spin fa-3x fa-fw" style="color:#283747;font-size:100%"></i>
+			Barbeque on Saturday November 12, 2016 at Alhoda Islamic Center after Zuhr.<br> All are welcome. </p>
+                        <br><font size="4"> Topic: "The Youth's Role in the  HIJRA & how we can benefit from it."</font></stong>
+                        <br><a href="#bulletin4" class="portfolio-link" data-toggle="modal"><i class="fa fa-fw fa-info-circle" style="color:#283747"></i></a>
+                        <br><p style="font-size: small">Click i for more info</p> 
+
 -->
+                        <p style="color:#DC143C;font-size:200%"><strong><i class="fa fa-cog fa-spin fa-3x fa-fw" style="color:#283747;font-size:100%"></i>Currently no Upcoming events.</strong></p>
                         </p> 
                 </div>
+	    </div>
     </section>
 
     <!-- Classes Section -->
@@ -819,47 +810,42 @@ Abu Dawud said: The version narrated by Muhammad b. Salamah is perfect, and Hamm
             </div>
         </div>
     </div>
-<!--- Bulletin Board Modal -->
-                <div class="container">
-                  <div class="modal fade" id="bulletin5" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header" col-lg-12 col-lg-offset-0 style="background-color:#ff8c8c">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h3 class="modal-title text-center">Neighborhood<br>Barbeque</h3>
-                        </div>
-                        <div class="modal-body col-lg-12 col-lg-offset-0 portfolio-modal" style ='background-color:#ff8c8c'>
-                          <p style="font-size:medium;">Neighborhood Barbeque at 12:30 pm on Sunday November 20 2016 at Alhoda Islamic Center.</p>
-                         		<div class="col-lg-6 col-lg-offset-3" >
-   			  <img class="img-responsive img-rounded" src="img/upcoming_photos/bbq.jpeg" alt=""> 
-					</div>
-                        </div>
-                      </div>
-
+    <!-- Upcoming events modal  -->
+    <div class="portfolio-modal modal fade" id="bulletin4" tabindex="-1" role="dialog" aria-hidden="true" style ='background-color:#ff8c8c'>
+        <div class="modal-content" style ='background-color:#ff8c8c'>
+	    <div class="close-modal" data-dismiss="modal"> 
+		<div class="lr">
+                    <div class="rl">
                     </div>
-                  </div>
-                <div class="container">
-                  <div class="modal fade" id="bulletin4" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header" col-lg-12 col-lg-offset-0 style="background-color:#ff8c8c">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h3 class="modal-title text-center">Thanksgiving<br>Giveaway</h3>
-                        </div>
-                        <div class="modal-body col-lg-12 col-lg-offset-0 portfolio-modal" style ='background-color:#ff8c8c'>
-                          <p style="font-size:medium;">Thanksgiving Turkey giveaway on Sunday November 20, 2016 between 1:00 PM to 2:30PM at Alhoda Islamic Center.</p>
-                         		<div class="col-lg-6 col-lg-offset-3" >
-   			  <img class="img-responsive img-rounded" src="img/upcoming_photos/thankgiving.jpeg" alt=""> 
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2" >
+                        <div class="modal-body">
+                            <h2>Essay Competition for Kids & Youth</h2>
+                            <hr class="star-upcoming">
+
+				<!-- START CHANGE UPCOMING EVENT  -->
+				
+                <p>
+		<b style="color:white"> Topic : </b> "The Youth's Role in the HIJRA & how we can benefit from it."
+                <br><b style="color:white"> Age : </b> 13 - 20 
+		<br><b style="color:white"> Last Date to Submit : </b> October 30.
+		</p>
+                </br>
+				<div class="row">
+                         		<div class="col-lg-8 col-lg-offset-2" >
+                    				<img class="img-responsive img-rounded" src="img/upcoming_photos/" alt=""> 
 					</div>
+				</div>
+				<!-- END  UPCOMING EVENT  -->
                         </div>
-                      </div>
-
                     </div>
-                  </div>
-
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 
